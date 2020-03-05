@@ -9,7 +9,7 @@
 
 ## Code challenge
 
-One to two paragraph statement about your product and what it does.
+Using a machine learning toolkit of your choice, create a tool which identifies objects in the image, then returns positions in pixels corresponding to bounding boxes of a user-selected class of object in the image. 
 
 ## Approach
 
