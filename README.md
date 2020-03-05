@@ -6,66 +6,25 @@
 
 ![](https://github.com/divyaprabha123/caMicroscopeGSOC_2/blob/master/output/FINAL.gif)
 
+
 ## Code challenge
 
 One to two paragraph statement about your product and what it does.
 
 ## Approach
 
- - Whole slide images are first splitted into patches of size 512 * 512 with stride as 96, then each of this splitted patches are fed into trained **NASnet** model with mobile-net backend.
- - NASnet then classifies all the patches in the WSI into two classes. A positive label indicates that there is atleast one pixel of tumor tissue. 
- - **Threshold** parameter is used to select regions of interest as bounding boxe cordinates. For example if threshold is set to 0.5, the regions with more than 50% probability of having tumor tissues is returned. 
+ - Whole slide images are first splitted into patches of size 512 * 512 with stride as 96, then each of this splitted patches are fed into trained **Mnasnet** (Platform-Aware Neural Architecture Search for Mobile) model with mobile-net backend.
+ - Mnasnet then classifies all the patches in the WSI into two classes. A positive label indicates that there is atleast one pixel of tumor tissue. 
+ - **Threshold** parameter is used to select regions of interest as bounding boxex cordinates. For example if threshold is set to 0.5, the regions with more than 50% probability of having tumor tissues is returned. 
 
-## Usage example
+## Work in progress
+- Converting all this into browser based model using Tensorflow js
+- Trying out object based modeling instead of Classification (I think its bit complicated because of the dimensionality of WSI. On resizing or cropping WSI images we might loose important details like nuclei count)
 
-A few motivating and useful examples of how your product can be used. Spice this up with code blocks and potentially more screenshots.
+## Future Work
+- Train Mnasnet on actual ICIAR2018 dataset where we have four classes: normal, benign, in situ carcinoma and invasive carcinoma. By doing this we can also add one more parameter which can let the user to select the class
+## References
 
-_For more examples and usage, please refer to the [Wiki][wiki]._
+1. Multiclass Classification of Breast Cancer in Whole slide Images (https://github.com/scottykwok/bach2018/blob/master/Multiclass%20Classification%20of%20Breast%20Cancer%20in%20Whole%20slide%20Images.pdf)
+2. Two-Stage Convolutional Neural Network for Breast Cancer Histology Image Classification. ICIAR 2018 Grand Challenge on BreAst Cancer Histology images (BACH) (https://github.com/ImagingLab/ICIAR2018)
 
-## Development setup
-
-Describe how to install all development dependencies and how to run an automated test-suite of some kind. Potentially do this for multiple platforms.
-
-```sh
-make install
-npm test
-```
-
-## Release History
-
-* 0.2.1
-    * CHANGE: Update docs (module code remains unchanged)
-* 0.2.0
-    * CHANGE: Remove `setDefaultXYZ()`
-    * ADD: Add `init()`
-* 0.1.1
-    * FIX: Crash when calling `baz()` (Thanks @GenerousContributorName!)
-* 0.1.0
-    * The first proper release
-    * CHANGE: Rename `foo()` to `bar()`
-* 0.0.1
-    * Work in progress
-
-## Meta
-
-Your Name – [@YourTwitter](https://twitter.com/dbader_org) – YourEmail@example.com
-
-Distributed under the XYZ license. See ``LICENSE`` for more information.
-
-[https://github.com/yourname/github-link](https://github.com/dbader/)
-
-## Contributing
-
-1. Fork it (<https://github.com/yourname/yourproject/fork>)
-2. Create your feature branch (`git checkout -b feature/fooBar`)
-3. Commit your changes (`git commit -am 'Add some fooBar'`)
-4. Push to the branch (`git push origin feature/fooBar`)
-5. Create a new Pull Request
-
-<!-- Markdown link & img dfn's -->
-[npm-image]: https://img.shields.io/npm/v/datadog-metrics.svg?style=flat-square
-[npm-url]: https://npmjs.org/package/datadog-metrics
-[npm-downloads]: https://img.shields.io/npm/dm/datadog-metrics.svg?style=flat-square
-[travis-image]: https://img.shields.io/travis/dbader/node-datadog-metrics/master.svg?style=flat-square
-[travis-url]: https://travis-ci.org/dbader/node-datadog-metrics
-[wiki]: https://github.com/yourname/yourproject/wiki
