@@ -11,11 +11,18 @@
 
 Using a machine learning toolkit of your choice, create a tool which identifies objects in the image, then returns positions in pixels corresponding to bounding boxes of a user-selected class of object in the image. 
 
+## Aim
+
+Aim of this work is to train a deep learning model with mobilenet backend that can run on any device to identify cancer regions in high quality **Whole Slide Images** (WSI). 
+
 ## Approach
 
  - Whole slide images are first split into patches (smaller region) of size 512 * 512 with stride as 96, then each of this patches is fed into trained **Mnasnet** (Platform-Aware Neural Architecture Search for Mobile) model.
  - Mnasnet then classifies all the patches in the WSI into two classes. A positive label indicates that there is atleast one pixel of tumor tissue. 
  - **Threshold** parameter is used to select regions of interest as bounding boxes cordinates. For example if threshold is set to 0.5, the bounding boxes of regions with more than 50% probability of having tumor tissues is returned. 
+
+## Dataset
+1. ![Histopathological cancer detection](https://www.kaggle.com/c/histopathologic-cancer-detection) - This dataset contains 2,20,025 examples of two classes (positive and negative). A positive label indicates that the center 32x32px region of a patch contains at least one pixel of tumor tissue. 
 
 ## Work in progress
 - Converting all this into browser based model using Tensorflow js
