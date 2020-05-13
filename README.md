@@ -1,15 +1,10 @@
 # Histopathological cancer detection in whole slide images
 
-## Code Challenge Resubmission GSOC-2020 - Cancer Region of interest Extraction and Machine learning
+## Cancer Region of interest Extraction and Machine learning
 
-> This repo contains resubmission for code challenge by caMicroscope.
 
 ![](https://github.com/divyaprabha123/caMicroscopeGSOC_2/blob/master/output/FINAL.gif)
 
-
-## Code challenge
-
-Using a machine learning toolkit of your choice, create a tool which identifies objects in the image, then returns positions in pixels corresponding to bounding boxes of a user-selected class of object in the image. 
 
 ## Aim
 
